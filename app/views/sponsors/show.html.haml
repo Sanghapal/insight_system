@@ -1,0 +1,27 @@
+%div{"role" => "main"}
+  %h1 Sponsor Details
+  %h2 Personal information
+  %table.table
+    %tr
+      %th Full name
+      %th Email
+      %th Mobile number
+      - if @sponsor.alternate_mobile != nil && @sponsor.alternate_mobile != ""
+        %th Alternate mobile
+      %th Pan number
+    %tr
+      %td= @sponsor.first_name + " " + @sponsor.last_name
+      %td= @sponsor.email
+      %td= @sponsor.mobile_number
+      - if @sponsor.alternate_mobile != nil && @sponsor.alternate_mobile != ""
+        %td= @sponsor.alternate_mobile
+      %td= @sponsor.pan_number
+
+  %h2 Address information
+  #{@sponsor.address_line1},  #{@sponsor.address_line2}
+  %br
+  Pin code: #{@sponsor.pin_code}
+  %br
+  #{@sponsor.city.name}- #{@sponsor.state.name}
+  %br
+  = link_to '<button type ="button">Back</button>'.html_safe, sponsors_path

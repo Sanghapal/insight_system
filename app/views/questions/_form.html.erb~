@@ -1,0 +1,23 @@
+<%= simple_nested_form_for(@question) do |f| %>
+  <%= f.error_notification %>
+<%= @question.errors.full_messages %>
+  <div class="form-inputs">
+<%= f.input :question_name %>
+<%= f.input :question_discription %>
+    <%= f.association :subject, :collection => Subject.all.entries, :label_method => :subject %>
+
+  </div>
+  <h2> Set the options for this question </h2>
+    <%= f.simple_fields_for :options, @question.options.build do |o| %>
+      <%= o.input :option_name %>
+      <%= o.input :option_right, as: :boolean %>
+      <%= o.link_to_remove "Delete this option" %>
+  <% end %>
+  <p>
+    <%= f.link_to_add "Add new option", :options %>
+
+  </p>
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

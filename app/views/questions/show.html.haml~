@@ -1,0 +1,14 @@
+%h1 Options for #{@question.question_name}
+%table
+  %tr
+    %th Option Name
+    %th Option right
+  - @question.options.each do |option|
+    %tr
+      %td= option.option_name
+      - if option.option_right == true
+        %td Yes
+      - else
+        %td No
+%br
+= link_to 'Back', questions_path

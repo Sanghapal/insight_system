@@ -1,0 +1,17 @@
+%h1 Subject list
+
+= form_tag destroy_multiple_subjects_path, method: :delete do
+  %table.table
+    %tr
+      %th Select subjects
+      %th Subject Name
+      %th
+
+    - @subjects.each do |subject|
+      %tr
+        %td= check_box_tag "subjects[]", subject.id
+        %td= subject.subject
+        %td= link_to 'Edit', edit_subject_path(subject)
+
+  = submit_tag "Delete selected"
+  = link_to '<button type="button">New Subject</button>'.html_safe, new_subject_path

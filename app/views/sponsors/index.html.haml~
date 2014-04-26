@@ -1,0 +1,23 @@
+%div{"role" => "main"}
+  %h1 Showing all  sponsors
+  = form_tag destroy_multiple_sponsors_path, method: :delete do
+    %table.table
+      %tr
+        %th Select sponsor
+        %th Full name
+        %th Email
+        %th Mobile number
+        %th pan_number
+        %th 
+        %th
+      - @sponsors.each do |sponsor|
+        %tr
+          %td= check_box_tag "sponsors[]", sponsor.id
+          %td= sponsor.first_name.capitalize + " " + sponsor.last_name.capitalize
+          %td= sponsor.email
+          %td= sponsor.mobile_number
+          %td= sponsor.pan_number  
+          %td= link_to 'Show Details', sponsor_path(sponsor)
+          %td= link_to 'Edit', edit_sponsor_path(sponsor)
+    = submit_tag "Delete selected sponsors"
+    = link_to '<button type="button">New Sponsor</button>'.html_safe, new_sponsor_path

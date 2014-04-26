@@ -1,0 +1,34 @@
+%p#notice= notice
+%h1 Trainers details
+%br
+= image_tag @trainer.photo.url, :alt => @trainer.first_name, html: {:width => 100, :height => 100}
+%br
+= image_tag @trainer.address_proof.url, :alt => @trainer.address_proof, html: {:width => 100, :height => 100}
+
+%br
+= image_tag @trainer.qualification.url, :alt => @trainer.qualification, html: {:width => 100, :height => 100}
+%br
+%h2 Personal information
+%table.table
+  %tr
+    %th Full name
+    %th Mobile number
+    %th Date Of Birth
+    %th Email    
+  %tr
+    %td= @trainer.first_name  +  " "  +  @trainer.last_name
+    %td= @trainer.mobile_number
+    %td= @trainer.date_of_birth
+    %td= @trainer.email
+
+%h2 Address information
+#{@trainer.address_line1}, #{@trainer.address_line2}
+%br
+Pin code: #{@trainer.zip_code}
+%br
+
+#{@trainer.city.name}- #{@trainer.state.name}
+
+
+%br
+= link_to '<button type ="button">Back</button>'.html_safe, trainers_path

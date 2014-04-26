@@ -1,0 +1,22 @@
+
+%h1 Grade Details
+%table
+  %tr
+    %th Title
+    %th Description
+    %th Student_Fee
+    %th Sponsors_fee
+    %th Batch_duration
+    %th Session_duration
+
+    %th
+      %tr
+        %td= @grade.title
+        %td= @grade.description
+        %td= @grade.student_fee
+        %td= @grade.sponsor_fee
+        %td= @grade.batch_duration
+        %td= @grade.session_duration
+%br
+= link_to '<button type="button">Back</button>'.html_safe, grades_path
+%br

@@ -1,0 +1,19 @@
+= link_to "Invite", new_user_invitation_path
+%table.table
+  %tr
+    %th Select students
+    %th Full name
+    %th
+
+  - @students.each do |student|
+    %tr
+      %td= check_box_tag "students[]", student.id
+      %td= student.first_name.capitalize + " " + student.last_name.capitalize
+      %td= link_to "Show Details", student_path(student)
+      - if student.admissions
+        %td= link_to "Put this student in another grade", addmition_path(student)
+
+      - else
+        %td= link_to "Fill admission form", addmition_path(student)
+      %td= link_to 'Edit', edit_student_path(student)
+

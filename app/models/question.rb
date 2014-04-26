@@ -1,0 +1,10 @@
+class Question < ActiveRecord::Base
+  belongs_to :subject
+  has_many :options, :dependent => :destroy
+#  accepts_nested_attributes_for :options, :reject_if => lambda { |a| a[:content].blank? }
+  accepts_nested_attributes_for :options, allow_destroy: true
+
+  attr_accessible :question_discription, :question_name, :subject_id, :options_attributes
+  validates :question_name, :question_discription, :subject_id, :presence => true
+#    validates :options, :length => {:minimum => 5 , :message => "minimum 5 options required"}
+end

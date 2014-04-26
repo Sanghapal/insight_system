@@ -1,0 +1,8 @@
+%div{"role" => "main"}
+  %h1 Editing sponsor
+  %div{"role" => "form"}
+    = render 'form'
+
+  = link_to 'Show', @sponsor
+  \|
+  = link_to '<button type="button">Cancel</button>'.html_safe, sponsors_path

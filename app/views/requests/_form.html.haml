@@ -1,0 +1,19 @@
+= simple_form_for(@request) do |f|
+  = f.error_notification
+
+  .form-inputs
+
+    = f.input :name
+
+    = f.input :email
+    = f.input :ssc_marks
+    = f.input :hsc_marks
+    = f.input :graduation_status, :collection => ['Completed', 'appairing', 'not doing']
+    = f.input :graduation_marks
+    = f.input :computer_knowledge, :collection => ['certafication', 'deploma'], as: :radio_buttons
+    = f.input :computer_marks
+    %div You must prove that you are a humanbeing. So that, give the simple answer:
+    %i If 2 *2 = 44, 4*4 = 168, 6*6 = 3612, then 9*9 = ?
+    = f.input :answer
+  .form-actions
+    = f.button :submit

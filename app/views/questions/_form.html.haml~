@@ -1,0 +1,16 @@
+- content_for :javascript do
+  = javascript_include_tag 'question'
+= simple_nested_form_for(@question) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :question_name
+    = f.input :question_discription
+    = f.association :subject, :collection => Subject.all.entries, :label_method => :subject
+    = f.simple_fields_for :options do |option|
+      = option.input :option_name
+      = option.input :option_right, as: :boolean
+
+  .form-actions
+    = f.button :submit, :id => 'submit_question'
+ 

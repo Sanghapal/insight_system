@@ -1,0 +1,11 @@
+%h1 Assign grade
+= simple_form_for Admission .new, :url => addgrade_path, method: :post do |f|
+
+  = f.error_notification
+  = f.input :student_id, :collection => Student.all.entries, :label_method => :first_name, :value_method => :id, :prompt => "Select student"
+  = f.input :grade_id, :collection => Grade.all.entries, :label_method => :title, :value_method => :id, :prompt => "Select grade"
+
+
+  = f.submit
+%br
+= link_to '<button type ="button">Cancel</button>'.html_safe, students_path

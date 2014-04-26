@@ -1,0 +1,35 @@
+<i> Hello Admin, </i>
+<br/>
+<br/>
+<p>
+<%= @request.name %> is asked to join your insight acadamy as a trainer.
+</p>
+<p> So, we recommend you to see acadamicle details of <%= @request.name.capitalize %>. before proceeding </p>
+<h1> Details of <%= @request.name %> </h1>
+<table>
+<tr>
+<th> SSC marks </th>
+<th> HSC marks </th>
+<th> Graduation Status </th>
+<th> Graduation marks </th>
+<th> Computer knowledge </th>
+<th> Computer marks </th>
+</tr>
+<tr>
+<td> <%= @request.ssc_marks %> </td>
+<td> <%= @request.hsc_marks %> </td>
+<td> <%= @request.graduation_status %> </td>
+<td> <%= @request.graduation_marks %> </td>
+<%= @request.computer_knowledge %> </td>
+<td> <%= @request.computer_marks %> </td>
+</tr>
+</table>
+<br/>
+<p>
+If you wish to accept his / her request, then <%= link_to "click Here", root_url + '/' + new_user_invitation_path %>
+other vise ignore this email.
+</p>
+<br/>
+Regards,
+<br/>
+Insight team

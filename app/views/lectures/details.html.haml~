@@ -1,0 +1,19 @@
+%h1 Student details
+%table.table
+  %tr
+    %th Student Name
+    %th Honework done
+    %th Attendence
+  - @lecture.presenties.each do |presenty|
+    %tr
+      %td= presenty.student.first_name.capitalize + " " + presenty.student.last_name.capitalize
+      - if presenty.done_homework
+        %td yes
+      - else
+        %td no
+      - if presenty.attendent
+        %td yes
+      - else
+        %td no
+
+%br

@@ -1,0 +1,38 @@
+
+%h2 Personal information
+%table
+  %tr
+    %th Full name
+    %th Middle name
+    %th Mobile number
+    %th Date Of Birth
+    - if @student.alternate_mobile != nil && @student.alternate_mobile != ""
+      %th Alternate mobile
+    %th Email
+  %tr
+    %td= @student.first_name  +  " "  +  @student.last_name
+    %td= @student.middle_name
+    %td= @student.mobile
+    %td= @student.date_of_birth
+    - if @student.alternate_mobile != nil && @student.alternate_mobile != ""
+      %td= @student.alternate_mobile
+    %td= @student.email
+
+%h2 Other information
+%table
+  %tr
+    %th Enrollment date
+    %th Blindness Certificate
+  %tr
+    %td= @student.enrollment_date
+    %td= @student.blindness_certificate
+%br
+%h2 Address information
+#{@student.address_line1},  #{@student.address_line2}
+%br
+Pin code: #{@student.zip_code}
+%br
+#{@student.city.name}- #{@student.state.name}
+
+%br
+= link_to '<button type="button">Back</button>'.html_safe, students_path

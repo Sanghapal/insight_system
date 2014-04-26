@@ -1,0 +1,4 @@
+class AddUserIdToTrainer < ActiveRecord::Migration
+  def change
+  end
+end
