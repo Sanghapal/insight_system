@@ -1,4 +1,6 @@
 class LecturesController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @batch = Batch.find(params[:batch_id])
     @lectures = @batch.lectures
@@ -20,7 +22,7 @@ class LecturesController < ApplicationController
 
   def new
     @batch = Batch.find(params[:batch_id])
-#    @lecture = @batch.lectures.build
+    @lecture = @batch.lectures.build
     #@lecture = Lecture.new
     @presenty = Presenty.new
     respond_to do |format|

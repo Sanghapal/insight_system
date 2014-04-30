@@ -1,4 +1,6 @@
 class StudentsController < ApplicationController
+  load_and_authorize_resource
+
 before_filter :load_country_state_city, :except => [:destroy, :show]
   def index
     @students = Student.all

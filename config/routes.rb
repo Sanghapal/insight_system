@@ -127,6 +127,7 @@ end
 match '/trainers/:trainer_id/ability' => 'trainers#ability', :via => [:get, :post], as: :ability
 match 'trainers/:trainer_id/display' => 'trainers#display', :via =>  :get, as: :display
 match 'lectures/:lecture_id/details' => 'lectures#details', :via =>  :get, as: :details
+match '/calenderhelp' => 'home#calenderhelp', :via => :get
 #match 'exams/:exam_id/details' => 'exams#details', :via =>  :get, as: :details
 
 

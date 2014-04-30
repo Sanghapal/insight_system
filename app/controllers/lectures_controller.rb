@@ -1,4 +1,6 @@
 class LecturesController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @batch = Batch.find(params[:batch_id])
     @lectures = @batch.lectures

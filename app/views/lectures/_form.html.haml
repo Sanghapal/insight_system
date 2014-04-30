@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'setup_lecture_session_date'
 = simple_form_for ([@batch, @lecture]) do |f|
   = f.error_notification
 
@@ -11,7 +13,12 @@
       %tr
         %td= f.hidden_field :batch_id
         %td= f.input :assign_homework, as: :boolean
-        %td= f.input :session_date, :label => "Session Date", :as => :datepicker, :readonly => true
+        %td
+          = f.input :session_date, :label => "Session Date" do
+            = f.input_field :session_date, :as => :datepicker, :readonly => true
+            %a{:href => '#', :id => 'imgCalendar_session_date', :class => 'datePicker'}
+              = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
+              = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
         %td= f.input :remarks, :as => :text
 
   %h2 Student Attendents
@@ -30,3 +37,11 @@
           %td.cls{:headers=>"s_#{student.id} attendence"}= check_box_tag "presenty[#{student.id}][attendent]"
           %td.vishal{:headers=>"s_#{student.id} homework"}= check_box_tag "presenty[#{student.id}][done_homework]"
   = f.submit "Create new session"
+
+  %div{:id => 'calendermodel', :class => 'modal hide fade-calenderhelp', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel', 'aria-hidden' => 'true'}
+    %div{:class => 'modal-header-calenderhelp'}
+      %h3 Instructions:      
+
+    %div{:class => 'modal-body'}
+      %div{:class => 'modal-footer-calenderhelp'}
+
