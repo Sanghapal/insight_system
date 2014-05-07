@@ -20,16 +20,17 @@
 
         %div{"role" => "navigation"}
           %ul.nav 
-            %li.dropdown
-              %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}, "aria-haspopup" => "true"}
-                Master Management
-                %b.caret
-              %ul.dropdown-menu
-                %li= link_to "Sponsors", sponsors_path
-                %li= link_to "Cities", cities_path
-                %li= link_to "States", states_path
-                %li= link_to "Subjects", subjects_path
-                %li= link_to "Questions", questions_path
+            - if current_user.roles == 'admin'
+              %li.dropdown
+                %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}, "aria-haspopup" => "true"}
+                  Master Management
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to "Sponsors", sponsors_path
+                  %li= link_to "Cities", cities_path
+                  %li= link_to "States", states_path
+                  %li= link_to "Subjects", subjects_path
+                  %li= link_to "Questions", questions_path
             %li.dropdown
               %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}, "aria-haspopup" => "true"}
                 Grade Management
@@ -45,12 +46,13 @@
                 %li= link_to "Enquiry", new_enquiry_path
                 %li= link_to "Enrollement", students_path
             %li.dropdown
-            %li.dropdown
-              %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}, "aria-haspopup" => "true"}
-                Trainer Management
-                %b.caret
-              %ul.dropdown-menu
-                %li= link_to "Trainers", trainers_path
+            - if current_user.roles != 'student'
+              %li.dropdown
+                %a.dropdown-toggle{:href => "#", :data => {:toggle => "dropdown"}, "aria-haspopup" => "true"}
+                  Trainer Management
+                  %b.caret
+                %ul.dropdown-menu
+                  %li= link_to "Trainers", trainers_path
 
 = render 'left_menu'
 %div#content

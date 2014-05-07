@@ -3,10 +3,8 @@ class TrainersController < ApplicationController
 
 
   def index
- @trainers = Trainer.where(:delete_flag => false)
-
-   
-    end
+   @trainers = Trainer.where(:delete_flag => false)   
+  end
 
   def show
     @trainer = Trainer.find(params[:id])

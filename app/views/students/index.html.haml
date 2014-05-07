@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'student'
 %h1 Students list
 = form_tag destroy_multiple_students_path, method: :delete  do 
   = render "students_list"

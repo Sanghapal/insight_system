@@ -1,4 +1,6 @@
-= simple_form_for(@sponsor), :input_html =>  {"role" => "form"} do |f|
+- content_for :javascript do
+  = javascript_include_tag 'sponsors'
+= simple_form_for(@sponsor) do |f|
   = f.error_notification
 
   .form-inputs

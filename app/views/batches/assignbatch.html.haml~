@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'batch'
 %h1 Assign students for #{@batch.title} held on #{@batch.deys_of_week} from #{@batch.from_time.strftime('%H:%M')} to #{@batch.end_time.strftime('%H:%M')}
 %h2 Student name and Batch
 %table.table

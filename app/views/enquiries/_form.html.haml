@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'enquiries'
 = simple_nested_form_for @enquiry, :html => { :multipart => true} do |f|
   = f.error_notification
   .form-inputs

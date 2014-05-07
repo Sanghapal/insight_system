@@ -1,5 +1,5 @@
 - content_for :javascript do
-  = javascript_include_tag 'setup_lecture_session_date'
+  = javascript_include_tag 'setup_lecture_session_date', 'lectures'
 = simple_form_for ([@batch, @lecture]) do |f|
   = f.error_notification
 

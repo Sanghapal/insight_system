@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'student'
 %h1 Assign batch
 %td= select_tag 'grade', options_from_collection_for_select(Grade.all.entries, :id, :title), :id => "combgrade", :prompt => "Select grade"
 %div{ :id => "studentListForm"}

@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'student'
 %h1 New student
 = simple_form_for @student, :html => { :multipart => true} do |f|
   = f.error_notification
