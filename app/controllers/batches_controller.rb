@@ -132,13 +132,26 @@ end
   end
 
   def assigntrainers
+    @a = []
     @batch = Batch.find(params[:batch_id])
-    @trainer_array = []
-    @trainer = Trainer.all
-    @trainer.each do |t|
-      @trainer_array.push(t.id)
+    @trainer_batch = @batch.trainers
+    @trainer_batch.each do |tb|
+      @a.push(tb.id)
     end
-    @trainer_query = @batch.trainers.where("trainer_id NOT IN (?)", @trainer_array)
-
+    if @a.empty?
+    @trainers = Trainer.all
+    else
+      @trainers = Trainer.where("id NOT IN (?)", @a)
+    end
+    if request.post?
+  params[:trainers].each do |trainer|
+@t = BatchesTrainers.new()
+@t.batch_id = @batch.id
+@t.trainer_id = trainer
+      if @t.save
+end
+end
+redirect_to grades_path
+end
     end
 end

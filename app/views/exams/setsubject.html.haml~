@@ -1,0 +1,5 @@
+%h2 Select subjects for this exam
+  - @exam.grade.subjects.each do |s|
+    = check_box_tag "subjects[]", s.id
+    = s.subject
+  = submit_tag "Next"

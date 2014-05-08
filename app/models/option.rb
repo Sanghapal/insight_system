@@ -1,6 +1,7 @@
 class Option < ActiveRecord::Base
   belongs_to :question
-  attr_accessible :option_name, :option_right, :question_id
+  belongs_to :attempt
+  attr_accessible :option_name, :option_right, :question_id, :attempt_id
   validates :option_name, :presence => true
 #  validate :validate_options
 

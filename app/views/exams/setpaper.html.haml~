@@ -1,0 +1,10 @@
+%h1 Set Questions for this exam:
+= simple_form_for setpaper_path(@exam), method: :post do |f|
+  = label_tag 'Paper name'
+  = text_field_tag 'paperName'
+  - @exam.subjects.each do |subject|
+    %h2 Questions under #{subject.subject} subject
+    - subject.questions.each do |question|
+      = check_box_tag "questions[]", question.id
+      = question.question_name
+  = submit_tag "Save"

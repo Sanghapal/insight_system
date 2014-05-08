@@ -1,0 +1,13 @@
+= simple_form_for([@grade, @exam]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :grade_id
+    = f.input :exam_date, :as => :datepicker
+    = f.input :discription, as: :text
+    %h2 Select Subjects for this exam
+    - @grade.subjects.each do |s|
+      = check_box_tag "subjects[]", s.id
+      = s.subject
+  .form-actions
+    = submit_tag "Next"

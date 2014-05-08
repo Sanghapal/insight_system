@@ -1,0 +1,6 @@
+class Paper < ActiveRecord::Base
+  belongs_to :exam
+  has_many :attempts
+  has_many :questions
+  attr_accessible :exam_time, :paper_name, :attempt_flag, :exam_id
+end

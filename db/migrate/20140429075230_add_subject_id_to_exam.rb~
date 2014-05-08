@@ -1,0 +1,4 @@
+class AddSubjectIdToExam < ActiveRecord::Migration
+  def change
+  end
+end

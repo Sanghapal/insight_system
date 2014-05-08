@@ -1,1 +1,9 @@
 %h1 Assign trainer to #{@batch.title}
+= simple_form_for assigntrainers_path, method: :post do |f|
+  = f.hidden_field :batch_id, :value => @batch.id
+  - @trainers.each do |t|
+    = check_box_tag "trainers[]", t.id
+    = t.first_name.capitalize + ' ' + t.last_name.capitalize
+  = submit_tag "Assign Trainers"
+%br
+= link_to 'Back', grades_path

@@ -4,11 +4,11 @@ class Student < ActiveRecord::Base
   belongs_to :city
   has_many :presenties
   has_many :lectures, :through => :presenties
-  has_many :results
-  has_many :exams, :through => :results
   has_many :admissions
   has_many :grades, :through => :admissions
   has_and_belongs_to_many :batches
+  has_and_belongs_to_many :exams
+  has_many :attempts
   attr_accessible :address_line1, :address_line2, :alternate_mobile, :email, :enrollment_date, :first_name, :last_name, :middle_name, :mobile, :sponsor, :zip_code, :state_id, :city_id, :country_id, :photo, :ban, :date_of_birth, :address, :blindness, :user_id
   has_attached_file :photo  
   has_attached_file :address

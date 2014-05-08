@@ -2,6 +2,8 @@
   = f.error_notification
 
   .form-inputs
+    - if current_user.roles == "student"
+      = f.hidden_field :user_id, :value => current_user.id
     = f.input :first_name
     = f.input :middle_name
     = f.input :last_name 

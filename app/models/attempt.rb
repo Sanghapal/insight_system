@@ -1,0 +1,7 @@
+class Attempt < ActiveRecord::Base
+  belongs_to :paper
+  belongs_to :student
+  has_many :options
+  has_one :result
+  attr_accessible :total_marks, :paper_id, :student_id
+end

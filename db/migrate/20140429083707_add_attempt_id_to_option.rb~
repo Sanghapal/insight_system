@@ -1,0 +1,4 @@
+class AddAttemptIdToOption < ActiveRecord::Migration
+  def change
+  end
+end

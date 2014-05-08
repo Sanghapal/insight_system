@@ -69,8 +69,9 @@ collection do
      delete 'multipledelete'
 end
       resources :lectures
-      resources :exams
     end
+      resources :exams
+
   end
     #resources :batches do
         #resources :reports
@@ -114,6 +115,15 @@ end
   match '/grade/:grade_id/batch/:batch_id/students' => 'batches#assignbatch', :via => [:get, :post], as: :assignbatch
     match '/:student_id/document' => 'students#document', via: :get
   match '/batch/:batch_id/assigntrainers' => 'batches#assigntrainers', :via => [:get, :post], as: :assigntrainers
+  match '/exam/:exam_id/setpaper' => 'exams#setpaper', :via => [:get, :post], as: :setpaper
+  match '/exam/:exam_id/setsubject' => 'exams#setsubject', :via => [:get, :post], as: :setsubject
+ match '/exam/:exam_id/setting' => 'exams#setting', :via => [:get, :put], as: :setting
+ match '/exam/:exam_id/currentpaper' => 'exams#currentpaper', :via => [:get, :put], as: :currentpaper
+ match '/exam/:exam_id/giveexam' => 'exams#giveexam', :via => [:get, :post], as: :giveexam
+
+
+
+
 
   match '/grades/batch/:batch_id/attendents' => 'batches#attendents', :via => [:get, :post], as: :attendents
 

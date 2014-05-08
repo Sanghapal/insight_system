@@ -1,0 +1,13 @@
+- @hold_array = []
+- @paper.last.questions.each do |q|
+  - @hold_array.push(q.id)
+- @questions_count = @hold_array.size
+= simple_form_for giveexam_path, method: :post do |f|
+  %i total marks of this exams is #{@questions_count * 2}
+  = hidden_field_tag 'student_id', current_user.student.id
+  - @paper.last.questions.each do |q|
+    %h3= q.question_name
+    - q.options.each do |o|
+      = radio_button_tag q.id, o.id
+      = o.option_name
+  = submit_tag "Submit"

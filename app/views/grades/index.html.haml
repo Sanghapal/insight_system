@@ -16,6 +16,7 @@
         %td= link_to 'Edit', edit_grade_path(grade)
         %td= link_to "Subject and marks", subjects_list_path(grade)
         %td= link_to 'Show Batches', grade_batches_path(grade)
+        %td= link_to 'Exams', grade_exams_path(grade)
 
   = submit_tag "Delete selected grades"
   = link_to '<button type="button">New Grade</button>'.html_safe, new_grade_path
