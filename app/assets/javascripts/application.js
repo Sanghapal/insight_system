@@ -12,14 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require select2
 //= require twitter/bootstrap
-//= require_tree .
 // require jquery-ui
-//= require jquery.ui.datepicker
-//= require jquery.timepicker.js
 // require jquery_nested_form
-
+//= require Acc.DC.API
+//= require calendar_generator 
+//= require calendar_generator.min
+ 
 //
 
 

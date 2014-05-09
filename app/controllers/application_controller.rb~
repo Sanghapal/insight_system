@@ -1,4 +1,8 @@
 class ApplicationController < ActionController::Base
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
   protect_from_forgery
   #before_filter :authenticate_user!
   def after_sign_in_path_for(resource)
@@ -8,6 +12,8 @@ p session
     new_user_invitation_path
 elsif resource && resource.sign_in_count == 1 && resource.roles == 'trainer'
       new_trainer_path
+elsif resource && resource.sign_in_count == 1 && resource.roles == 'student'
+  new_student_path
 else
       welcome_path
   end

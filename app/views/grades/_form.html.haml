@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'grade'
 = simple_form_for(@grade) do |f|
   = f.error_notification
 

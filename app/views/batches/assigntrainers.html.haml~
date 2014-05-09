@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'batch'
 %h1 Assign trainer to #{@batch.title}
 = simple_form_for assigntrainers_path, method: :post do |f|
   = f.hidden_field :batch_id, :value => @batch.id

@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'enquiries'
 %h1 Students Enqiry list
 = form_tag destroy_multiple_enquiries_path, method: :delete  do 
   %table.table

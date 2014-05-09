@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+- content_for :javascript do
+  = javascript_include_tag 'student'
+= link_to "Invite", new_user_invitation_path
+>>>>>>> 35d27ef48944f636c856e0c7ed59514769e30378
 %table.table
   %tr
     %th Select students

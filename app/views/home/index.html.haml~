@@ -1,5 +1,9 @@
+- content_for :javascript do
+  = javascript_include_tag 'home'
 %h1 Wellcome to insight academy!
 %br
 = link_to "Login", new_user_session_path
 \|
-= link_to "Register", new_user_registration_path
+= link_to "Register (only for student)", new_user_registration_path
+\|
+= link_to 'Send request(only for trainer)', new_request_path

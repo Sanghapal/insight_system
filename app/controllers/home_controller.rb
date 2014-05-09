@@ -1,4 +1,12 @@
 class HomeController < ApplicationController
+  
   def welcome
-end
+  end
+
+  def calenderhelp
+    respond_to do |format|
+      format.js
+    end
+  end
+
 end

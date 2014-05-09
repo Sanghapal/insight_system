@@ -58,4 +58,5 @@ gem 'devise_invitable', '~> 1.0.0'
 
 #gem 'rmagick', '2.13.2'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'cancan'
 # gem 'tabulous'

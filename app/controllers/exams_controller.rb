@@ -1,6 +1,8 @@
 class ExamsController < ApplicationController
   # GET /exams
   # GET /exams.json
+  load_and_authorize_resource
+
   def index
     @grade = Grade.find(params[:grade_id])
     @exams = @grade.exams

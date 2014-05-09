@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'setup_student_date_of_birth'
 = simple_form_for @student, :html => { :multipart => true} do |f|
   = f.error_notification
 
@@ -7,7 +9,11 @@
     = f.input :first_name
     = f.input :middle_name
     = f.input :last_name 
-    = f.input :date_of_birth, :as => :datepicker, :readonly => true     
+    = f.input :date_of_birth, :label => 'Date Of Birth' do
+      = f.input_field :date_of_birth, :as => :datepicker, :readonly => true     
+      %a{:href => '#', :id => 'imgCalendar', :class => 'datePicker'}
+        = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
+        = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
     = f.input :email
     = f.input :mobile
     = f.input :alternate_mobile
@@ -17,7 +23,11 @@
     = f.association :state, :collection => State.find(:all, :order => "name ASC"), :prompt => "Select state" 
     = f.association :city, :collection => City.find(:all, :order => "name ASC"), :prompt => "Select City"
     = f.input :zip_code
-    = f.input :enrollment_date, :as => :datepicker, :readonly => true
+    = f.input :enrollment_date, :label => 'Enrollment date' do
+      = f.input_field :enrollment_date, :as => :datepicker, :readonly => true
+      %a{:href => '#', :id => 'imgCalendar_enrollment_date', :class => 'datePicker'}
+        = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
+        = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
     = f.label :photo
     = f.file_field :photo
     = f.label "address proof"
@@ -28,6 +38,9 @@
   .form-actions
     = f.button :submit
 
+    %div{:id => 'calendermodel', :class => 'modal hide fade-calenderhelp', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel', 'aria-hidden' => 'true'}
+      %div{:class => 'modal-header-calenderhelp'}
+        %h3 Instructions:      
 
-
-  
+      %div{:class => 'modal-body'}
+        %div{:class => 'modal-footer-calenderhelp'}
