@@ -22,16 +22,16 @@
 //
 
 
-$.fn.select2.defaults = $.extend($.fn.select2.defaults, {
-  width: 'resolve',
-  placeholder: '-- Select --',
-  minimumResultsForSearch: 5
-});
+// $.fn.select2.defaults = $.extend($.fn.select2.defaults, {
+//  width: 'resolve',
+//  placeholder: '-- Select --',
+//  minimumResultsForSearch: 5
+//});
 
-$(document).ready(function(){
-
-  $('select').select2();
-  $(document).on('click', 'a.close', function(){
-    $('.modal').remove();
-    $('.modal-backdrop').remove();
-  });
+// $(document).ready(function(){
+//
+//  $('select').select2();
+//  $(document).on('click', 'a.close', function(){
+//    $('.modal').remove();
+//    $('.modal-backdrop').remove();
+//  });

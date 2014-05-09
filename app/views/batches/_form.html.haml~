@@ -1,3 +1,5 @@
+- content_for :javascript do
+  = javascript_include_tag 'setup_batch_date', 'batch'
 = simple_form_for ([@grade, @batch])  do |f|
   = f.error_notification
 
@@ -5,11 +7,27 @@
   %fieldset
     = f.input :title, :label => 'Batch Title'
     = f.hidden_field :grade_id
-    = f.input :starte_date, :label => "Start Date", :as => :datepicker, :readonly => true
-    = f.input :end_date, :as => :datepicker, :readonly => true
+    = f.input :starte_date, :label => 'Start date' do
+      = f.input_field :starte_date, :as => :datepicker, :readonly => true
+      %a{:href => '#', :id => 'imgCalendar_start_date', :class => 'datePicker'}
+        = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
+        = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
+    = f.input :end_date, :label => "End Date" do
+      = f.input_field :end_date, :as => :datepicker, :readonly => true
+      %a{:href => '#', :id => 'imgCalendar_end_date', :class => 'datePicker'}
+        = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
+        = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
  
-    = f.input :from_time, as: :Time
-    = f.input :end_time, as: :Time
+    = f.input :from_time
+    = f.input :end_time
     =f.input :deys_of_week, collection: ['Monday, Wednesday, Friday.', 'Tuesday, Thursday, Saturday', 'Monday to Friday '], as: :radio_buttons
   .form-actions
     = f.button :submit
+
+    %div{:id => 'calendermodel', :class => 'modal hide fade-calenderhelp', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel', 'aria-hidden' => 'true'}
+      %div{:class => 'modal-header-calenderhelp'}
+        %h3 Instructions:      
+
+      %div{:class => 'modal-body'}
+        %div{:class => 'modal-footer-calenderhelp'}
+

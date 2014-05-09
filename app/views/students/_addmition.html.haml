@@ -1,5 +1,5 @@
 - content_for :javascript do
-  = javascript_include_tag 'setup_admission_date', 'student'
+  = javascript_include_tag 'student', 'setup_admission_date'
 = simple_form_for @admission, :url => addmition_path(@student), method: :post do |f|
   = f.input :admission_date, :label => 'Admission date' do
     = f.input_field :admission_date, :as => :datepicker, :readonly => true

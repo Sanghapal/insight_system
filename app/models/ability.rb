@@ -11,6 +11,9 @@ class Ability
       can :manage, :all
     elsif user.roles == 'student'
       can [:create, :update, :read], Student, :id => @user.id
+      can :show, Student
+      can :read, Grade
+      can [:read, :giveexam], Exam
     end
   end
 end

@@ -1,10 +1,16 @@
+- content_for :javascript do
+  = javascript_include_tag 'setup_exam_date'
 = simple_form_for([@grade, @exam]) do |f|
   = f.error_notification
 
   .form-inputs
     = f.hidden_field :grade_id
     = f.input :exam_name
-    = f.input :exam_date, :as => :datepicker
+    = f.input :exam_date, :label => 'Exam Date' do
+      = f.input_field :exam_date, :readonly => true, :as => :datepicker
+      %a{:href => '#', :id => 'imgCalendar_exam_date', :class => 'datePicker'}
+        = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
+        = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
     = f.input :discription, as: :text
     %h2 Select Subjects for this exam
     - @grade.subjects.each do |s|
@@ -12,3 +18,11 @@
       = s.subject
   .form-actions
     = submit_tag "Next"
+
+    %div{:id => 'calendermodel', :class => 'modal hide fade-calenderhelp', :tabindex => '-1', :role => 'dialog', 'aria-labelledby' => 'myModalLabel', 'aria-hidden' => 'true'}
+      %div{:class => 'modal-header-calenderhelp'}
+        %h3 Instructions:      
+
+      %div{:class => 'modal-body'}
+        %div{:class => 'modal-footer-calenderhelp'}
+

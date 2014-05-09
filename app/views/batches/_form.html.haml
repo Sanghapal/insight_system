@@ -1,5 +1,5 @@
 - content_for :javascript do
-  = javascript_include_tag ['setup_batch_date', 'batch']
+  = javascript_include_tag 'setup_batch_date', 'batch'
 = simple_form_for ([@grade, @batch])  do |f|
   = f.error_notification
 
