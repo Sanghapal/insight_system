@@ -101,8 +101,9 @@ class ExamsController < ApplicationController
         end
         end
   end
-    end
     redirect_to currentpaper_path(@exam)
+
+    end
   end
   def currentpaper
     @exam = Exam.find(params[:exam_id])
@@ -111,7 +112,7 @@ class ExamsController < ApplicationController
       @p = Paper.find(params[:paper])
       @p.current_paper_flag = true
       if @p.save
-        redirect_to grade_exams_path
+        redirect_to grades_path
       end
     end
   end
@@ -206,6 +207,10 @@ class ExamsController < ApplicationController
         @result.attempt_id = @attempt.id
         if @result.save
         redirect_to result_path(@result)
+        r = @result
+        user = User.where(:roles => 'admin').collect(&:email)
+
+        UserMailer.examreport(user, r).deliver
         end
   end
    end

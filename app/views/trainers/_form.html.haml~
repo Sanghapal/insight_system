@@ -1,36 +1,36 @@
 - content_for :javascript do
-  = javascript_include_tag 'setup_student_date_of_birth'
-= simple_form_for @student, :html => { :multipart => true} do |f|
+  = javascript_include_tag 'setup_trainer_dateOfBirth.js'
+= simple_form_for @trainer, :html => { :multipart => true} do |f|
   = f.error_notification
 
   .form-inputs
-    - if current_user.roles == "student"
-      = f.hidden_field :user_id, :value => current_user.id
+    = f.hidden_field :user_id, :value => current_user.id
     = f.input :first_name
     = f.input :middle_name
     = f.input :last_name 
+    = f.input :email, :input_html => {:value => current_user.email}, :readonly => true
+    = f.input :mobile_number
     = f.input :date_of_birth, :label => 'Date Of Birth' do
-      = f.input_field :date_of_birth, :as => :datepicker, :readonly => true     
+      = f.input_field :date_of_birth, :readonly => true, :as => :datepicker
       %a{:href => '#', :id => 'imgCalendar', :class => 'datePicker'}
         = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
         = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
-    - if current_user.roles == 'student'
-      = f.input :email, :input_html => {:value => current_user.email}, :readonly => true
-    - else
-      = f.input :email
-    = f.input :mobile
-    = f.input :alternate_mobile
     = f.input :address_line1
     = f.input :address_line2
-    = f.association :country, :collection => Country.all.entries, :prompt => "Select country" 
+    = f.association :country, :collection => Country.all.entries, :prompt => "Select country"
     = f.association :state, :collection => State.find(:all, :order => "name ASC"), :prompt => "Select state" 
     = f.association :city, :collection => City.find(:all, :order => "name ASC"), :prompt => "Select City"
+
+
     = f.input :zip_code
-    = f.input :enrollment_date, :label => 'Enrollment date' do
-      = f.input_field :enrollment_date, :as => :datepicker, :readonly => true
-      %a{:href => '#', :id => 'imgCalendar_enrollment_date', :class => 'datePicker'}
-        = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
-        = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
+   
+    = f.label:photo
+    = f.file_field :photo
+    = f.label :address_proof
+    = f.file_field :address_proof
+    = f.label :qualification
+    = f.file_field :qualification
+
   .form-actions
     = f.button :submit
 
@@ -40,3 +40,4 @@
 
       %div{:class => 'modal-body'}
         %div{:class => 'modal-footer-calenderhelp'}
+

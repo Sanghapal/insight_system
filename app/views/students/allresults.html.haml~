@@ -1,0 +1,17 @@
+%h1 Showing all results of #{@student.first_name.capitalize + " " + @student.last_name.capitalize}
+%table.table
+  %tr
+    %th Grade
+    %th Exam name
+    %th Total marks for exam
+    %th obtained marks from this exam
+    %th Result status
+  - @student.attempts.each do |a|
+    %tr
+      %td= a.paper.exam.grade.title.capitalize
+      %td= a.paper.exam.exam_name.capitalize
+      %td= a.result.total_marks
+      %td= a.result.get_marks
+      %td= a.result.result_status
+%br
+= link_to "Back", students_path

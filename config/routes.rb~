@@ -120,6 +120,7 @@ end
  match '/exam/:exam_id/setting' => 'exams#setting', :via => [:get, :put], as: :setting
  match '/exam/:exam_id/currentpaper' => 'exams#currentpaper', :via => [:get, :put], as: :currentpaper
  match '/exam/:exam_id/giveexam' => 'exams#giveexam', :via => [:get, :post], as: :giveexam
+  match '/result_id/result' => 'exams#result', :via => :get, as: :result
 
 
 
@@ -137,6 +138,7 @@ end
 match '/trainers/:trainer_id/ability' => 'trainers#ability', :via => [:get, :post], as: :ability
 match 'trainers/:trainer_id/display' => 'trainers#display', :via =>  :get, as: :display
 match 'lectures/:lecture_id/details' => 'lectures#details', :via =>  :get, as: :details
+match '/calenderhelp' => 'home#calenderhelp', :via => :get
 #match 'exams/:exam_id/details' => 'exams#details', :via =>  :get, as: :details
 
 

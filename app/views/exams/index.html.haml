@@ -10,10 +10,14 @@
     %tr
       %td= exam.exam_name
       %td= exam.exam_date
-      %td= link_to "Set paper", setpaper_path(exam)
-      %td= link_to "Change setting of paper", setting_path(exam)
-      %td= link_to "Give exam", giveexam_path(exam)
+      - if current_user.roles != 'student'
+        %td= link_to "Set paper", setpaper_path(exam)
+        %td= link_to "Change setting of paper", setting_path(exam)
+      - elsif current_user.roles == 'student'
+        - if Date.today == exam.exam_date
+          %td= link_to "Give exam", giveexam_path(exam)
 
 %br
 
-= link_to 'New Exam', new_grade_exam_path
+- if current_user.roles != 'student'
+  = link_to 'New Exam', new_grade_exam_path

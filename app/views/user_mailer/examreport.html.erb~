@@ -1,0 +1,12 @@
+<i> Dear Admin, </i>
+<br/>
+<br/>
+<% if @result.result_status == "pass" %>
+We are pleased to inform you that student <%= @result.attempt.student.first_name.capitalize + " " + @result.attempt.student.last_name.capitalize %> has successfully clear the exam for <%= @result.attempt.paper.exam.grade.title.capitalize %>
+<% elsif @result.result_status == "fail" %>
+We are sorry to inform you that, student <%= @result.attempt.student.first_name.capitalize + " " + @result.attempt.student.last_name.capitalize %> could not clear the exam for <%= @result.attempt.paper.exam.grade.title.capitalize %>
+<% end %>
+<br/>
+Regards,
+<br/>
+Insight team

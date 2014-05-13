@@ -121,7 +121,7 @@ end
  match '/exam/:exam_id/currentpaper' => 'exams#currentpaper', :via => [:get, :put], as: :currentpaper
  match '/exam/:exam_id/giveexam' => 'exams#giveexam', :via => [:get, :post], as: :giveexam
   match '/result_id/result' => 'exams#result', :via => :get, as: :result
-
+  match '/student/:student_id/allresults' => 'students#allresults', :via => :get, as: :allresults
 
 
 

@@ -14,7 +14,10 @@
       %a{:href => '#', :id => 'imgCalendar', :class => 'datePicker'}
         = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
         = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
-    = f.input :email
+    - if current_user.roles == 'student'
+      = f.input :email, :input_html => {:value => current_user.email}, :readonly => true
+    - else
+      = f.input :email
     = f.input :mobile
     = f.input :alternate_mobile
     = f.input :address_line1
@@ -28,13 +31,6 @@
       %a{:href => '#', :id => 'imgCalendar_enrollment_date', :class => 'datePicker'}
         = image_tag('Calendar_scheduleHS.png', :alt => 'Pick date from calendar' )
         = link_to 'Need Help?', calenderhelp_path, "data-toggle" => "modal", "data-target" => "#calendermodel", :class => "lnkApprove", :remote => true, :class => 'btn btn-mini'
-    = f.label :photo
-    = f.file_field :photo
-    = f.label "address proof"
-    = f.file_field :address
-    = f.label "Blind Certificate"
-    = f.file_field :blindness
-
   .form-actions
     = f.button :submit
 
@@ -44,10 +40,3 @@
 
       %div{:class => 'modal-body'}
         %div{:class => 'modal-footer-calenderhelp'}
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 35d27ef48944f636c856e0c7ed59514769e30378
-  

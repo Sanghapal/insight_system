@@ -29,6 +29,6 @@
           = yield
       %hr 
       %footer
-        %p &copy; Niwant|Insight 2014
+        %p &copy; Niwant|Insight
     = javascript_include_tag "application"
     = yield(:javascript) if content_for?(:javascript)

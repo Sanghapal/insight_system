@@ -4,12 +4,14 @@
       %li.nav-header
       - if params[:controller] == "students"
         %li Student
-        = link_to 'New Student', new_student_path
+        - if current_user.roles == "admin" && current_user.roles == "trainer"
+          = link_to 'New Student', new_student_path
       - elsif params[:controller] == "students" && params[:action] == "new"
         %li New
       - elsif params[:controller] == "grades"
         %li Grade
-        = link_to 'New Grade', new_grade_path
+        - if current_user.roles != 'student'
+          = link_to 'New Grade', new_grade_path
         %li
       - elsif params[:controller] == "grades" && params[:action] == "new"
         %li new       
@@ -59,4 +61,4 @@
         %li
       - elsif params[:controller] == "admissions" && params[:action] == "new"
         %li new 	
-%div{"role" => "main"}
+

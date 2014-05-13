@@ -1,9 +1,22 @@
+- content_for :javascript do
+  = javascript_include_tag 'giveexam'
+%h1 Instructions for exam:
+%ol
+  %li The paper is designed in #{@paper.last.exam.subjects.size} subjects.
+  %ul
+    - @paper.last.exam.subjects.each do |s|
+      %li= s.subject
+  %li All these sections will carries few questions based on the marks.
+  %li Students will get time span of 40 minutes to solve the exam, extra 10 minutes will be given to recheck their paper.
+  %li Each question will comes under heading level 3 followed by several radio buttons. Student  needs to choose only one options to give correct answer to check radio button, by pressing spacebar an answer can be given.
+  %li While writing the entire exam students are not allow to use other keys on the keyboard, except "up arrow, down arrow and spacebar".
+  %li If student is observed pressing any keys except above mention keys on the keyboard, they will be rejected from course;.
 - @hold_array = []
 - @paper.last.questions.each do |q|
   - @hold_array.push(q.id)
 - @questions_count = @hold_array.size
 = simple_form_for giveexam_path, method: :post do |f|
-  %i total marks of this exams is #{@questions_count * 2}
+  %i total marks of this exams is: #{@questions_count * 2}
   = hidden_field_tag 'student_id', current_user.student.id
   - @paper.last.questions.each do |q|
     %h3= q.question_name
