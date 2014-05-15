@@ -4,7 +4,7 @@
   .form-inputs
     = f.hidden_field :lesson_id
     = f.input :topic_name
-    = f.input :topic_discription, :as => 'ckeditor', as: :text
+    = f.input :topic_discription, as: :ckeditor, :input_html => {:ckeditor => {:toolbar => 'mini'}}
 
   .form-actions
     = f.button :submit

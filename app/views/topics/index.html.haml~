@@ -9,7 +9,7 @@
   - @topics.each do |topic|
     %tr
       %td= topic.topic_name
-      %td= topic.topic_discription
+      %td= raw topic.topic_discription
 %br
 
 = link_to 'New Topic', new_lesson_topic_path

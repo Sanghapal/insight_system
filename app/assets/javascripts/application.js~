@@ -19,6 +19,7 @@
 //= require calendar_generator 
 //= require calendar_generator.min
 //= require ckeditor/init
+//= require ckeditor/config
  
 //
 
