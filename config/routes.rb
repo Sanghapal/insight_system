@@ -71,6 +71,9 @@ end
       resources :lectures
     end
       resources :exams
+      resources :lessons do
+      resources :topics
+    end
 
   end
     #resources :batches do

@@ -1,0 +1,9 @@
+= simple_form_for([@grade, @lesson]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :grade_id
+    = f.input :lesson_name
+
+  .form-actions
+    = f.button :submit

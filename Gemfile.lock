@@ -74,6 +74,9 @@ GEM
       bson (~> 1.9.0)
     builder (3.0.4)
     cancan (1.6.10)
+    ckeditor (4.0.8)
+      mime-types
+      orm_adapter
     climate_control (0.0.3)
       activesupport (>= 3.0)
     cocaine (0.5.1)
@@ -202,6 +205,7 @@ DEPENDENCIES
   bootstrap-timepicker-rails!
   bson_ext
   cancan
+  ckeditor
   coffee-rails (~> 3.2.1)
   devise
   devise_invitable (~> 1.0.0)

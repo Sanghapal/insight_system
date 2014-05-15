@@ -1,0 +1,10 @@
+= simple_form_for([@lesson, @topic]) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.hidden_field :lesson_id
+    = f.input :topic_name
+    = f.input :topic_discription, :as => 'ckeditor', as: :text
+
+  .form-actions
+    = f.button :submit

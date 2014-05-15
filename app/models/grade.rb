@@ -2,6 +2,7 @@ class Grade < ActiveRecord::Base
    attr_accessible :title, :description, :student_fee, :sponsor_fee, :batch_duration, :session_duration
     has_many :marking_pattens
     has_many :subjects, :through => :marking_pattens
+  has_many :lessons, :dependent => :destroy
     has_many :admissions
     has_many :students, :through => :admissions
      has_many :batches, :dependent => :destroy

@@ -18,6 +18,7 @@
 //= require Acc.DC.API
 //= require calendar_generator 
 //= require calendar_generator.min
+//= require ckeditor/init
  
 //
 
@@ -27,7 +28,7 @@
 //  placeholder: '-- Select --',
 //  minimumResultsForSearch: 5
 //});
-
+// require ckeditor-jquery
 // $(document).ready(function(){
 //
 //  $('select').select2();
@@ -35,3 +36,5 @@
 //    $('.modal').remove();
 //    $('.modal-backdrop').remove();
 //  });
+
+

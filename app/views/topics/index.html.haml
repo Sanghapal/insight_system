@@ -1,0 +1,15 @@
+%h1 Listing topics
+
+%table
+  %tr
+    %th Topic name
+    %th topic discription
+    %th
+
+  - @topics.each do |topic|
+    %tr
+      %td= topic.topic_name
+      %td= topic.topic_discription
+%br
+
+= link_to 'New Topic', new_lesson_topic_path

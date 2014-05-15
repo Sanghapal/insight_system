@@ -1,0 +1,14 @@
+%h1 Showing all lessons
+
+%table
+  %tr
+    %th Lesson name
+    %th Action
+
+  - @lessons.each do |lesson|
+    %tr
+      %td= lesson.lesson_name
+      %td= link_to 'Topics', lesson_topics_path(lesson)
+%br
+
+= link_to 'New Lesson', new_grade_lesson_path
